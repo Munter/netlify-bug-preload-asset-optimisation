@@ -13,6 +13,10 @@
 
   <script src="hello-world.js"></script>
 
+  <script>
+    fetch('/hello-world.js').then((response) => console.log(response));
+  </script>
+
   <style>
     @font-face {
       font-family: 'Bilbo Swash Caps';
@@ -44,8 +48,14 @@
 
     main {
       padding: 20px;
-      max-width: 70em;
+      max-width: 60em;
       margin: 0 auto;
+    }
+
+    picture,
+    picture>img {
+      display: block;
+      max-width: 100%;
     }
   </style>
 </head>
@@ -55,7 +65,10 @@
     <h1>Netlify asset optimization bug</h1>
   </header>
   <main>
-
+    <picture>
+      <source srcset="large.jpg, extralarge.jpg 2x" media="(min-width: 800px)">
+      <img srcset="small.jpg, medium.jpg 2x" alt="…">
+    </picture>
   </main>
 </body>
 
